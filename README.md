@@ -21,10 +21,16 @@ No real audio or screen capture, microphone permissions, transcription, AI APIs 
 
 ## Documentation
 
+Start here:
+
+- [Project instructions](AGENTS.md)
+- [Implementation backlog](docs/backlog.md)
+
+Product and implementation references:
+
+- [Design system and visual identity](docs/design-system.md)
 - [Prototype requirements and acceptance criteria](docs/mvp.md)
 - [Interface and interaction rules](docs/interface.md)
 - [Proposed architecture](docs/architecture.md)
-- [Implementation backlog and validation](docs/backlog.md)
-- [Contributor instructions](AGENTS.md)
 
-No setup or execution commands are documented yet: the application scaffold and its scripts do not exist.
+The development prerequisites and scaffold sequence are documented in the [backlog](docs/backlog.md). Application execution commands will be added after the scaffold and its scripts exist.

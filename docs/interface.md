@@ -2,9 +2,13 @@
 
 Visual direction and component boundaries below are initial proposals, adjustable through usability review within the mocked scope. All visible text must use Brazilian Portuguese.
 
+## Window model
+
+Keep Session as a low-height horizontal utility window by default. The Figma reference is 920 × 390 px, without a persistent sidebar; show the session state, elapsed time, lifecycle controls, latest transcript line, reply actions, custom question and demo notice together. Open Settings and History in larger secondary windows (currently 1200 × 800 px in Figma). Moving between screens must preserve the in-memory session and settings state.
+
 ## Shared layout and screens
 
-Use a compact desktop layout with a dark theme, readable text, clear spacing and a restrained accent. Preserve contrast and allow long transcripts and answers to scroll without hiding primary controls. Avoid conveying status through color alone.
+Use a compact near-black desktop layout with purple as the primary accent, readable text and consistent spacing. Use an italic treatment for the latest transcript excerpt and a subtle purple outline for suggested answers. Preserve contrast and allow long transcripts and answers to scroll without hiding primary controls. Avoid conveying status through color alone.
 
 Keep navigation (“Sessão”, “Configurações”, “Histórico”) and the visible notice **“Modo demonstração — nenhum áudio está sendo capturado”** on every screen.
 

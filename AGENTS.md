@@ -4,10 +4,11 @@
 - Write code identifiers in English.
 - Use English filenames, including documentation files.
 - Before preparing or executing any commit, you MUST read and follow the [commit skill](.agents/skills/commit/SKILL.md).
+- Before any application UI change, follow the [Figma-first UI skill](.agents/skills/figma-ui-workflow/SKILL.md): locate and confirm the intended Figma screen with the user, audit the reusable component library, and finish the design in Figma before implementing it.
 
 ## Koemuni prototype
 
-- Before implementing, read [README.md](README.md), [requirements](docs/mvp.md), [interface](docs/interface.md), [architecture](docs/architecture.md) and [backlog](docs/backlog.md).
+- Before implementing, read [README.md](README.md), [requirements](docs/mvp.md), [interface](docs/interface.md), [design system](docs/design-system.md), [architecture](docs/architecture.md) and [backlog](docs/backlog.md).
 - Keep the current phase mocked: fictional data and Vue state in memory only. Show “Modo demonstração — nenhum áudio está sendo capturado” on every screen.
 - Use the defined stack: Tauri 2 native Rust bootstrap, Vue 3 Composition API with `<script setup>`, TypeScript, Vite and Tailwind CSS. Keep Rust within bootstrap for this phase.
 - Do not introduce real capture, microphone permissions, transcription, AI integrations, authentication, billing, remote backends, persistence, external integrations or excluded window/distribution features. Follow the exclusions in the requirements.

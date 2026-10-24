@@ -1,0 +1,3 @@
+interface:
+  display_name: "Figma-first UI"
+  short_description: "Confirm Figma screen and audit reusable components before UI work"

@@ -34,7 +34,10 @@ Create mutable runtime copies of fixtures. Archive a snapshot when ending a sess
 src/
   App.vue
   main.ts                 # Vue entry point
-  components/             # SessionControls.vue, TranscriptList.vue
+  components/
+    ui/                   # Generic reusable controls, when needed
+    shared/               # Koemuni patterns reused across screens, when needed
+    session/              # SessionControls.vue, TranscriptList.vue
   views/                  # SessionView.vue, SettingsView.vue, HistoryView.vue
   composables/            # usePrototypeState.ts, useSession.ts when needed
   types/                  # session-types.ts
