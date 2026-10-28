@@ -1,6 +1,6 @@
 # Implementation backlog
 
-This backlog is the build sequence for the mocked MVP in [requirements](mvp.md). Complete one delivery at a time, keep each change reviewable and stop when its exit criteria pass. A delivery does not authorize work outside the MVP. Delivery 1's scaffold and checks are complete; Deliveries 2–7 remain pending.
+This backlog is the build sequence for the mocked MVP in [requirements](mvp.md). Complete one delivery at a time, keep each change reviewable and stop when its exit criteria pass. A delivery does not authorize work outside the MVP. Deliveries 0–1 are finished; Deliveries 2–7 remain pending.
 
 ## Rules for every delivery
 
@@ -13,7 +13,7 @@ This backlog is the build sequence for the mocked MVP in [requirements](mvp.md).
 - Reuse the selected scaffold's scripts and dependencies. Do not add a library, abstraction or test framework unless a delivery requires it and existing tools cannot meet the acceptance criteria.
 - For code changes, run the applicable checks listed in [architecture quality gates](architecture.md#quality-gates). For documentation-only changes, check links, consistency and whitespace. Report actual results and unverified environment limits.
 
-## Delivery 0 — Prepare the development environment
+## [FINISHED] Delivery 0 — Prepare the development environment
 
 **Purpose:** Confirm that the machine can build a Tauri 2 desktop app before generating files.
 
@@ -41,7 +41,7 @@ This backlog is the build sequence for the mocked MVP in [requirements](mvp.md).
 
 **Exit criteria:** Required commands are available, missing prerequisites and any install failures are recorded, and no environment compatibility claim is made from version checks alone.
 
-## Delivery 1 — Generate and prove the scaffold
+## [FINISHED] Delivery 1 — Generate and prove the scaffold
 
 **Purpose:** Establish the smallest runnable desktop app using the agreed stack.
 
