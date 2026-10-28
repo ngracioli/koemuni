@@ -1,6 +1,6 @@
 # Koemuni
 
-Koemuni is a planned desktop meeting assistant with transcription and reply suggestions. **The application has not been implemented yet.** This repository currently documents its first phase: a mocked interface prototype.
+Koemuni is a planned desktop meeting assistant with transcription and reply suggestions. **The repository now contains an empty desktop scaffold; the prototype screens and behavior have not been implemented yet.** The first phase is a mocked interface prototype.
 
 The prototype will validate navigation, readability and meeting controls using fictional data and Vue state held only in memory. It will not validate transcription accuracy or AI response quality. Reloading or closing the application will discard changes.
 
@@ -33,4 +33,11 @@ Product and implementation references:
 - [Interface and interaction rules](docs/interface.md)
 - [Proposed architecture](docs/architecture.md)
 
-The development prerequisites and scaffold sequence are documented in the [backlog](docs/backlog.md). Application execution commands will be added after the scaffold and its scripts exist.
+The development prerequisites and scaffold sequence are documented in the [backlog](docs/backlog.md).
+
+## Development commands
+
+- `npm run dev` starts the frontend in a browser.
+- `npm run build` type-checks the frontend and creates a production build.
+- `npm run tauri dev` starts the desktop app in development mode.
+- `npm run preview` serves the production build locally.

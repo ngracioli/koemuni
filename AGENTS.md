@@ -5,6 +5,7 @@
 - Use English filenames, including documentation files.
 - Before preparing or executing any commit, you MUST read and follow the [commit skill](.agents/skills/commit/SKILL.md).
 - Before any application UI change, follow the [Figma-first UI skill](.agents/skills/figma-ui-workflow/SKILL.md): locate and confirm the intended Figma screen with the user, audit the reusable component library, and finish the design in Figma before implementing it.
+- **Mandatory component reuse rule:** when a UI pattern is clearly suitable for reuse across other screens, create it as a reusable component in the shared component area even if those screens do not exist yet. Give it a typed, meaningfully customizable API for the expected variations. Keep truly screen-specific composition in its feature; do not generalize unrelated markup or add speculative options. Reuse existing shared components before duplicating markup.
 
 ## Koemuni prototype
 

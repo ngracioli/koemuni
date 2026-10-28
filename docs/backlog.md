@@ -1,6 +1,6 @@
 # Implementation backlog
 
-This backlog is the build sequence for the mocked MVP in [requirements](mvp.md). Complete one delivery at a time, keep each change reviewable and stop when its exit criteria pass. A delivery does not authorize work outside the MVP. All items are pending; the application scaffold and its scripts do not exist yet.
+This backlog is the build sequence for the mocked MVP in [requirements](mvp.md). Complete one delivery at a time, keep each change reviewable and stop when its exit criteria pass. A delivery does not authorize work outside the MVP. Delivery 1's scaffold and checks are complete; Deliveries 2–7 remain pending.
 
 ## Rules for every delivery
 
@@ -44,6 +44,8 @@ This backlog is the build sequence for the mocked MVP in [requirements](mvp.md).
 ## Delivery 1 — Generate and prove the scaffold
 
 **Purpose:** Establish the smallest runnable desktop app using the agreed stack.
+
+**Current status (2026-10-24):** Implemented. The root scaffold and scripts exist. Frontend build, Rust formatting/check/Clippy and npm audit pass. The Tauri development process started and remained active until clean shutdown; direct visual inspection was unavailable because the compositor does not support the screen-capture protocol. Arch/KDE/Wayland/PipeWire runtime compatibility beyond this launch remains unverified.
 
 **Actions:**
 

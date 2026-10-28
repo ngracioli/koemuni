@@ -14,10 +14,11 @@ This is an initial folder and ownership proposal, not an existing scaffold. Keep
 
 ## Responsibilities
 
-- **Vue components:** render the three screens, expose labeled controls and emit user actions. Do not embed fictional conversation data in templates.
-- **Composables:** own reactive state, session transitions, elapsed time, delayed transcript lines and simulated reply requests.
-- **Types:** describe the small domain shared by components, fixtures and composables.
-- **Fixtures:** contain fictional devices, initial settings, transcript scenarios, historical sessions and predefined replies, including a deterministic reply-error scenario.
+- **Feature folders:** keep screen-specific views, components, composables, types and fixtures together under `features/session`, `features/settings` or `features/history`.
+- **Shared folder:** hold components or composables clearly suited to reuse across screens, including planned screens not implemented yet. Give reusable components typed APIs for their expected variations; keep truly feature-specific code inside its feature.
+- **Vue components:** render screens, expose labeled controls and emit user actions. Do not embed fictional conversation data in templates.
+- **Composables:** own reactive state, session transitions, elapsed time, delayed transcript lines and simulated reply requests; place them with the feature or shared owner they serve.
+- **Types and fixtures:** keep domain types and fictional data with the feature that owns them. Use shared only when multiple features consume the same definition or fixture.
 - **Rust:** remains in the Tauri 2 bootstrap. No custom audio commands, permissions, backend or domain logic in this phase.
 
 ## State ownership
@@ -34,15 +35,12 @@ Create mutable runtime copies of fixtures. Archive a snapshot when ending a sess
 src/
   App.vue
   main.ts                 # Vue entry point
-  components/
-    ui/                   # Generic reusable controls, when needed
-    shared/               # Koemuni patterns reused across screens, when needed
-    session/              # SessionControls.vue, TranscriptList.vue
-  views/                  # SessionView.vue, SettingsView.vue, HistoryView.vue
-  composables/            # usePrototypeState.ts, useSession.ts when needed
-  types/                  # session-types.ts
-  fixtures/               # session-fixtures.ts, reply-fixtures.ts
   assets/                 # Shared styles and local assets, when needed
+  features/
+    session/               # Session view, controls, state and fixtures
+    settings/              # Settings view and fictional device defaults
+    history/               # History view and session-history fixtures
+  shared/                  # Code used by multiple features, when needed
 src-tauri/
   src/
     main.rs               # Generated native executable entry point
@@ -55,7 +53,7 @@ src-tauri/
 docs/                     # Requirements, interface, architecture and backlog
 ```
 
-Paths illustrate intended responsibilities; create only files needed by the actual implementation. Keep generated configuration at its standard location. Do not create empty directories, barrel exports, generic `utils` collections or speculative native layers such as repositories, services and commands.
+The feature roots are present as empty scaffold folders. Add nested folders only when files require them. Keep generated configuration at its standard location. Do not add barrel exports, generic `utils` collections or speculative native layers such as repositories, services and commands.
 
 Use simple in-memory screen selection initially; no routing dependency is required for three screens. Extract components or split composables only when existing responsibilities justify it. Keep frontend behavior in `src/`; do not mirror it in Rust. Native modules, if a later authorized phase needs them, live under `src-tauri/src/` and follow Rust module conventions rather than copying Vue folders. The native layout follows the [Tauri project structure](https://v2.tauri.app/start/project-structure/).
 
@@ -80,7 +78,7 @@ No local HTTP server as application architecture, remote infrastructure, persist
 - Cyclomatic complexity must be **at most 10 per handwritten function**, in TypeScript and Rust. It measures independent control-flow paths, not just the number of `if` statements. Keep conditional/loop nesting to **at most three levels**; count the outermost control block as level one. Prefer shallower code even below these limits.
 - When a limit is exceeded, simplify conditions or extract a cohesive operation with a meaningful name. Do not split code mechanically just to satisfy a metric, suppress the rule or replace readable conditions with obscure expressions. Use exhaustive `switch`/`match` for state-dependent behavior where clearer.
 - Keep one owner for each business rule, state transition, fixture source and timer lifecycle. Before adding logic, search existing implementations and callers. Reuse an existing helper/component when it represents the same responsibility.
-- Consolidate duplicated behavior that must change together, including suggestion and custom-question request handling. Similar-looking markup alone does not justify a generic component; avoid abstractions for hypothetical reuse.
+- Consolidate duplicated behavior that must change together, including suggestion and custom-question request handling. Promote a clearly reusable UI pattern to shared even before a second screen exists; avoid generalizing unrelated markup or adding speculative options.
 - Remove unused imports, variables and helpers introduced by the change. Do not mix unrelated cleanup into a feature or bug fix. Comments explain non-obvious reasons, not restate code.
 - Optimize demonstrated work: avoid repeated transformations during rendering, redundant state and unnecessary allocations. Measure an actual bottleneck before adding caches, concurrency or complex data structures.
 - Validate external inputs at their boundary when any are introduced in an authorized phase. Never render arbitrary HTML, swallow errors or weaken permissions to make a check pass.

@@ -29,7 +29,7 @@ src/
   views/                # Screen composition and screen-level orchestration
 ```
 
-Create folders only when a real component needs them. Put a component in `ui/` only when it is independent of Koemuni feature data and has a stable reuse case. Put app-specific components in `shared/` only when multiple features/screens use them; keep components used by one feature in that feature's folder. A view/page composes components and owns screen-level layout; it should not become a dumping ground for reusable controls. Do not add barrel files, generic `common/`, `utils/`, or empty folders.
+Create folders only when a real component needs them. Put a component in `ui/` only when it is independent of Koemuni feature data and has a stable reuse case. Put app-specific components in `shared/` when they are clearly suitable for reuse across screens, including planned screens that do not exist yet; do not wait for a second caller. Give these components a typed API that supports the expected visual and behavioral variations. Keep truly screen-specific components in their feature folder. A view/page composes components and owns screen-level layout; it should not become a dumping ground for reusable controls. Do not add barrel files, generic `common/`, `utils/`, or empty folders.
 
 If a component is used once and has no distinct responsibility, keep its markup in the caller. Do not move existing components solely to match this provisional example.
 
@@ -37,7 +37,7 @@ If a component is used once and has no distinct responsibility, keep its markup 
 
 The folder tree above is a starting proposal, not a permanent project rule. As soon as the project architecture is finalized and the Vue scaffold exists, update this skill and the architecture documentation to match the actual source tree, naming, and component conventions. Inspect the generated scaffold and implemented components first; replace provisional paths and examples rather than layering a second competing structure on top.
 
-After that update, place each new component beside its owning feature/page by default. Use the project's shared location only when more than one feature/page needs the same responsibility. Use the UI primitives location for feature-independent controls reused across the app. When a component starts to serve multiple features, move it to the shared location and update its imports/callers in the same change. Keep each page's feature components in its designated feature folder; do not place feature-specific UI in a global components bucket.
+After that update, place each new component beside its owning feature/page by default. Use the project's shared location as soon as a component has a clear reuse case across planned or existing screens. Use the UI primitives location for feature-independent controls reused across the app. Move a feature component to shared when its responsibility clearly applies across screens, and update its imports/callers in the same change. Keep truly feature-specific UI in its designated feature folder; do not place it in a global components bucket.
 
 ## Component API
 
